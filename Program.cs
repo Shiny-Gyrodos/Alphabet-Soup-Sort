@@ -13,6 +13,9 @@ namespace MyApp
             this.word = word;
         }
     }
+
+    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
     internal class Program
     {
         static List<WordsAndValues> wordsAndValues = new List<WordsAndValues>();
@@ -35,7 +38,7 @@ namespace MyApp
             Console.ReadKey();
         }
 
-
+        //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         static void SortWords(string[] wordCollection, int[] valueCollection)
         {
@@ -47,19 +50,19 @@ namespace MyApp
 
             valueList.Sort();
 
-            foreach(int value in valueList)
+            for (int i = 0; i < valueList.Count; i++)
             {
-                for (int i = 0; i < wordsAndValues.Count(); i++)
+                for (int j = 0; j < wordsAndValues.Count; j++)
                 {
-                    if (wordsAndValues[i].value == valueList[value]) // Throws argument out of range exception.
+                    if (wordsAndValues[j].value == valueList[i])
                     {
-                        wordList.Add(wordsAndValues[i].word);
+                        wordList.Add(wordsAndValues[j].word);
                     }
                 }
             }
         }
 
-
+        //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         static int[] GetWordValue(string[] wordCollection, int amountOfWords)
         {
@@ -67,22 +70,22 @@ namespace MyApp
 
             for (int i = 0; i < wordCollection.Length; i++)
             {
+                int charCount = 0;
+
                 foreach(char character in wordCollection[i])
                 {
                     int charLocation = Array.IndexOf(CharStorage, character);
                     valueCollection[i] += charLocation;
+                    charCount++;
                 }
-            }
 
-            foreach (int value in valueCollection)
-            {
-                Console.Write(value + " ");
+                valueCollection[i] /= charCount;
             }
 
             return valueCollection;
         }
 
-
+        //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         static string[] GetWords(int amountOfWords)
         {
@@ -106,7 +109,7 @@ namespace MyApp
             return wordCollection;
         }
 
-
+        //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
         static int GetWordCount()
         {
