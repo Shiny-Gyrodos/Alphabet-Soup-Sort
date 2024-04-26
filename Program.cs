@@ -123,14 +123,12 @@ namespace MyApp
                 try
                 {
                     amountOfWords = int.Parse(Console.ReadLine());
+                    validChoiceMade = true;
                 }
                 catch
                 {
                     Console.WriteLine("Numbers only.");
-                }
-
-                validChoiceMade = true;       
-
+                }      
             } while (!validChoiceMade);
 
             return amountOfWords;
