@@ -2,12 +2,22 @@
 
 namespace MyApp
 {
+    class WordsAndValues
+    {
+        public int wordValue;
+        public string word;
+
+        public WordsAndValues(int wordValue, string word)
+        {
+            this.wordValue = wordValue;
+            this.word = word;
+        }
+    }
     internal class Program
     {
-        enum Sorted
-        {
-
-        }
+        static List<WordsAndValues> wordsAndValues = new List<WordsAndValues>();
+        static List<int> valueList = new List<int>();
+        static List<string> wordList = new List<string>();
         static char[] CharStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         static void Main(string[] args)
         {
@@ -24,7 +34,21 @@ namespace MyApp
         {
             for (int i = 0; i < wordCollection.Length; i++)
             {
-                //Sorted ... = (Sorted)valueCollection[i]; 
+                wordsAndValues.Add(new WordsAndValues(valueCollection[i], wordCollection[i]));
+                valueList.Add(wordsAndValues[i].wordValue);
+            }
+
+            valueList.Sort();
+
+            foreach(int value in valueList)
+            {
+                for (int i = 0; i < wordCollection.Length; i++)
+                {
+                    if (wordsAndValues[i].wordValue == valueList[value])
+                    {
+                        wordList.Add(wordsAndValues[i].word);
+                    }
+                }
             }
         }
 
