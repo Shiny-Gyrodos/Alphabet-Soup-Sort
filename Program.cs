@@ -4,12 +4,12 @@ namespace MyApp
 {
     class WordsAndValues
     {
-        public int wordValue;
+        public int value;
         public string word;
 
-        public WordsAndValues(int wordValue, string word)
+        public WordsAndValues(int value, string word)
         {
-            this.wordValue = wordValue;
+            this.value = value;
             this.word = word;
         }
     }
@@ -19,12 +19,19 @@ namespace MyApp
         static List<int> valueList = new List<int>();
         static List<string> wordList = new List<string>();
         static char[] CharStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+                                   //0^   1^   2^   3^   4^   5^   6^   7^   8^   9^  10^  11^  12^  13^  14^  15^  16^  17^  18^  19^  20^  21^  22^  23^  24^  25^
         static void Main(string[] args)
         {
             int amountOfWords = GetWordCount();
             string[] wordCollection = GetWords(amountOfWords);
             int[] valueCollection = GetWordValue(wordCollection, amountOfWords);
             SortWords(wordCollection, valueCollection);
+
+            foreach(string word in wordList)
+            {
+                Console.Write(word + " ");
+            }
+
             Console.ReadKey();
         }
 
@@ -35,16 +42,16 @@ namespace MyApp
             for (int i = 0; i < wordCollection.Length; i++)
             {
                 wordsAndValues.Add(new WordsAndValues(valueCollection[i], wordCollection[i]));
-                valueList.Add(wordsAndValues[i].wordValue);
+                valueList.Add(wordsAndValues[i].value);
             }
 
             valueList.Sort();
 
             foreach(int value in valueList)
             {
-                for (int i = 0; i < wordCollection.Length; i++)
+                for (int i = 0; i < wordsAndValues.Count(); i++)
                 {
-                    if (wordsAndValues[i].wordValue == valueList[value])
+                    if (wordsAndValues[i].value == valueList[value]) // Throws argument out of range exception.
                     {
                         wordList.Add(wordsAndValues[i].word);
                     }
@@ -65,6 +72,11 @@ namespace MyApp
                     int charLocation = Array.IndexOf(CharStorage, character);
                     valueCollection[i] += charLocation;
                 }
+            }
+
+            foreach (int value in valueCollection)
+            {
+                Console.Write(value + " ");
             }
 
             return valueCollection;
