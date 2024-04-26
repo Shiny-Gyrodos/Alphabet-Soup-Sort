@@ -2,13 +2,35 @@
 
 namespace MyApp
 {
+    enum CharacterValues
+    {
+        a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z      
+    }
     internal class Program
     {
         static void Main(string[] args)
         {
             int amountOfWords = GetWordCount();
             string[] wordCollection = GetWords(amountOfWords);
+            //wordCollection[0].
             Console.ReadKey();
+        }
+
+
+
+        static int GetWordValue(string[] wordCollection)
+        {
+            int wordValue = 0;
+
+            for (int i = 0; i < wordCollection.Length; i++)
+            {
+                foreach(char character in wordCollection[i])
+                {
+                    // Add code that looks something like wordValue += ...
+                }
+            }
+
+            return wordValue;
         }
 
 
@@ -23,7 +45,7 @@ namespace MyApp
             {
                 try
                 {
-                    string wordTyped = Console.ReadLine();
+                    string wordTyped = Console.ReadLine().ToLower();
                     wordCollection[i] = wordTyped;
                 }
                 catch
