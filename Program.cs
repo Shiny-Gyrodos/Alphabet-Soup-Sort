@@ -17,18 +17,18 @@ namespace MyApp
 
         static int[] GetWordValue(string[] wordCollection, int amountOfWords)
         {
-            int[] wordValue = new int[amountOfWords];
+            int[] valueCollection = new int[amountOfWords];
 
             for (int i = 0; i < wordCollection.Length; i++)
             {
                 foreach(char character in wordCollection[i])
                 {
                     int charLocation = Array.IndexOf(CharStorage, character);
-                    wordValue[i] += charLocation;
+                    valueCollection[i] += charLocation;
                 }
             }
 
-            return wordValue;
+            return valueCollection;
         }
 
 
@@ -68,7 +68,7 @@ namespace MyApp
             {
                 try
                 {
-                    amountOfWords = int.Parse(Console.ReadLine().ToString());
+                    amountOfWords = int.Parse(Console.ReadLine());
                 }
                 catch
                 {
