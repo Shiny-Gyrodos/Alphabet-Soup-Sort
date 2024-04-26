@@ -21,7 +21,7 @@ namespace MyApp
         static List<WordsAndValues> wordsAndValues = new List<WordsAndValues>();
         static List<int> valueList = new List<int>();
         static List<string> wordList = new List<string>();
-        static char[] CharStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        static char[] charStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
                                    //0^   1^   2^   3^   4^   5^   6^   7^   8^   9^  10^  11^  12^  13^  14^  15^  16^  17^  18^  19^  20^  21^  22^  23^  24^  25^
         static void Main(string[] args)
         {
@@ -74,7 +74,7 @@ namespace MyApp
 
                 foreach(char character in wordCollection[i])
                 {
-                    int charLocation = Array.IndexOf(CharStorage, character);
+                    int charLocation = Array.IndexOf(charStorage, character);
                     valueCollection[i] += charLocation;
                     charCount++;
                 }
