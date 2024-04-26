@@ -4,13 +4,28 @@ namespace MyApp
 {
     internal class Program
     {
+        enum Sorted
+        {
+
+        }
         static char[] CharStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         static void Main(string[] args)
         {
             int amountOfWords = GetWordCount();
             string[] wordCollection = GetWords(amountOfWords);
-            int[] wordValue = GetWordValue(wordCollection, amountOfWords);
+            int[] valueCollection = GetWordValue(wordCollection, amountOfWords);
+            SortWords(wordCollection, valueCollection);
             Console.ReadKey();
+        }
+
+
+
+        static void SortWords(string[] wordCollection, int[] valueCollection)
+        {
+            for (int i = 0; i < wordCollection.Length; i++)
+            {
+                //Sorted ... = (Sorted)valueCollection[i]; 
+            }
         }
 
 
