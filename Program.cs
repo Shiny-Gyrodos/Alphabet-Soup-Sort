@@ -40,7 +40,7 @@ namespace MyApp
 
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        static void SortWords(string[] wordCollection, int[] valueCollection)
+        static void SortWords(string[] wordCollection, int[] valueCollection) // Sorts the words
         {
             for (int i = 0; i < wordCollection.Length; i++)
             {
@@ -64,7 +64,7 @@ namespace MyApp
 
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        static int[] GetWordValue(string[] wordCollection, int amountOfWords)
+        static int[] GetWordValue(string[] wordCollection, int amountOfWords) //  Returns the word's values
         {
             int[] valueCollection = new int[amountOfWords];
 
@@ -87,7 +87,7 @@ namespace MyApp
 
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        static string[] GetWords(int amountOfWords)
+        static string[] GetWords(int amountOfWords) // Retruns the words that are to be sorted.
         {
             string[] wordCollection = new string[amountOfWords];
 
@@ -111,7 +111,7 @@ namespace MyApp
 
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        static int GetWordCount()
+        static int GetWordCount() // Returns the amount of words that will be sorted.
         {
             bool validChoiceMade = false;
             int amountOfWords = 0;
