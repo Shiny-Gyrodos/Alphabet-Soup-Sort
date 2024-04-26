@@ -2,31 +2,29 @@
 
 namespace MyApp
 {
-    enum CharacterValues
-    {
-        a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z      
-    }
     internal class Program
     {
+        static char[] CharStorage = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         static void Main(string[] args)
         {
             int amountOfWords = GetWordCount();
             string[] wordCollection = GetWords(amountOfWords);
-            //wordCollection[0].
+            int[] wordValue = GetWordValue(wordCollection, amountOfWords);
             Console.ReadKey();
         }
 
 
 
-        static int GetWordValue(string[] wordCollection)
+        static int[] GetWordValue(string[] wordCollection, int amountOfWords)
         {
-            int wordValue = 0;
+            int[] wordValue = new int[amountOfWords];
 
             for (int i = 0; i < wordCollection.Length; i++)
             {
                 foreach(char character in wordCollection[i])
                 {
-                    // Add code that looks something like wordValue += ...
+                    int charLocation = Array.IndexOf(CharStorage, character);
+                    wordValue[i] += charLocation;
                 }
             }
 
