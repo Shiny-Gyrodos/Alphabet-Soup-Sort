@@ -32,7 +32,7 @@ namespace MyApp
 
             foreach(string word in wordList)
             {
-                Console.Write(word + " ");
+                Console.Write(word + " "); // Bug will sometimes print a word twice.
             }
 
             Console.ReadKey();
@@ -95,14 +95,35 @@ namespace MyApp
 
             for (int i = 0; i < amountOfWords; i++)
             {
+                int validCharCount = 0;
+
                 try
                 {
                     string wordTyped = Console.ReadLine().ToLower();
+
+                    foreach(char character in wordTyped)
+                    {
+                        for(int j = 0; j < charStorage.Length; j++)
+                        {
+                            if (character == charStorage[j])
+                            {
+                                validCharCount++;
+                                j = charStorage.Length;
+                            }
+                        }
+                    }
+
+                    if (validCharCount != wordTyped.Length)
+                    {
+                        throw new NotImplementedException();
+                    }
+
                     wordCollection[i] = wordTyped;
                 }
-                catch
+                catch  // Catch block for if you enter Ctrl-Z or an invalid character.
                 {
                     Console.WriteLine("Make sure your words are composed soley of valid characters.");
+                    i--;
                 }
             }
 
