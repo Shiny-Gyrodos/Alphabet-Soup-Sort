@@ -57,6 +57,9 @@ namespace MyApp
                     if (wordsAndValues[j].value == valueList[i])
                     {
                         wordList.Add(wordsAndValues[j].word);
+                        valueList.Remove(i); // Shortens search.
+                        wordsAndValues[j].value = -1; // Makes sure the same word won't be added twice.
+                        j = wordsAndValues.Count; // Shortens search.
                     }
                 }
             }
@@ -103,6 +106,7 @@ namespace MyApp
 
                     foreach(char character in wordTyped)
                     {
+                        if(Char.IsLetter(character))
                         for(int j = 0; j < charStorage.Length; j++)
                         {
                             if (character == charStorage[j])
