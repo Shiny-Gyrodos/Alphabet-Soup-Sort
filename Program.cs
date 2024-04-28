@@ -31,11 +31,11 @@ namespace MyApp
             SortWords(wordCollection, valueCollection);
 
             Console.Clear();
-            Console.WriteLine("Here are the words sorted.\n");
+            Console.WriteLine("Here are the words sorted with their values attached.\n");
 
-            foreach(string word in wordList)
+            for(int i = 0; i < wordList.Count; i++)
             {
-                Console.Write(word + " ");
+                Console.Write($"{wordList[i]} - {valueList[i]}, ");
             }
 
             Console.ReadKey();
@@ -60,7 +60,6 @@ namespace MyApp
                     if (wordsAndValues[j].value == valueList[i])
                     {
                         wordList.Add(wordsAndValues[j].word);
-                        valueList.Remove(i); // Shortens search.
                         wordsAndValues[j].value = -1; // Makes sure the same word won't be added twice.
                         j = wordsAndValues.Count; // Shortens search.
                     }
