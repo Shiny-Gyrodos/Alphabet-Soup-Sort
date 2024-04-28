@@ -35,7 +35,7 @@ namespace MyApp
 
             foreach(string word in wordList)
             {
-                Console.Write(word + " "); // Bug will sometimes print a word twice.
+                Console.Write(word + " ");
             }
 
             Console.ReadKey();
