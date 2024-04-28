@@ -93,7 +93,7 @@ namespace MyApp
 
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-        static string[] GetWords(int amountOfWords) // Retruns the words that are to be sorted.
+        static string[] GetWords(int amountOfWords) // Returns the words that are to be sorted.
         {
             string[] wordCollection = new string[amountOfWords];
 
@@ -101,30 +101,35 @@ namespace MyApp
 
             for (int i = 0; i < amountOfWords; i++)
             {
-                int validCharCount = 0;              
-                string wordTyped = Console.ReadLine().ToLower();
-
-                foreach(char character in wordTyped)
+                try
                 {
-                    for(int j = 0; j < charStorage.Length; j++)
+                    int validCharCount = 0;              
+                    string wordTyped = Console.ReadLine().ToLower();
+
+                    foreach(char character in wordTyped)
                     {
-                        if (character == charStorage[j])
+                        for(int j = 0; j < charStorage.Length; j++)
                         {
-                            validCharCount++;
-                            j = charStorage.Length;
+                            if (character == charStorage[j])
+                            {
+                                validCharCount++;
+                                j = charStorage.Length;
+                            }
                         }
                     }
-                }
 
-                if (validCharCount != wordTyped.Length) // Catches symbols and such like.
+                    if (validCharCount != wordTyped.Length) // Catches symbols and such like.
+                    {
+                        throw new Exception();
+                    }
+                    
+                    wordCollection[i] = wordTyped;                 
+                }
+                catch
                 {
                     Console.WriteLine("Make sure your words are composed soley of valid characters.");
                     i--;
-                }
-                else
-                {
-                    wordCollection[i] = wordTyped; 
-                }        
+                }      
             }
 
             return wordCollection;
