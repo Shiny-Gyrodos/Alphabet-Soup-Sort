@@ -30,6 +30,9 @@ namespace MyApp
             int[] valueCollection = GetWordValue(wordCollection, amountOfWords);
             SortWords(wordCollection, valueCollection);
 
+            Console.Clear();
+            Console.WriteLine("Here are the words sorted.\n");
+
             foreach(string word in wordList)
             {
                 Console.Write(word + " "); // Bug will sometimes print a word twice.
