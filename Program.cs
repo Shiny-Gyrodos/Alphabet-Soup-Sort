@@ -33,9 +33,9 @@ namespace MyApp
             Console.Clear();
             Console.WriteLine("Here are the words sorted with their values attached.\n");
 
-            for(int i = 0; i < wordCollection.Length; i++)
+            for(int i = 0; i < wordList.Count; i++)
             {
-                Console.Write($"{wordCollection[i]} - {valueCollection[i]}, ");
+                Console.Write($"{wordList[i]} - {valueList[i]}, ");
             }
 
             Console.ReadKey();
