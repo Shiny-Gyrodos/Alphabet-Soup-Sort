@@ -101,37 +101,30 @@ namespace MyApp
 
             for (int i = 0; i < amountOfWords; i++)
             {
-                int validCharCount = 0;
+                int validCharCount = 0;              
+                string wordTyped = Console.ReadLine().ToLower();
 
-                try
+                foreach(char character in wordTyped)
                 {
-                    string wordTyped = Console.ReadLine().ToLower();
-
-                    foreach(char character in wordTyped)
+                    for(int j = 0; j < charStorage.Length; j++)
                     {
-                        if(Char.IsLetter(character))
-                        for(int j = 0; j < charStorage.Length; j++)
+                        if (character == charStorage[j])
                         {
-                            if (character == charStorage[j])
-                            {
-                                validCharCount++;
-                                j = charStorage.Length;
-                            }
+                            validCharCount++;
+                            j = charStorage.Length;
                         }
                     }
-
-                    if (validCharCount != wordTyped.Length)
-                    {
-                        throw new NotImplementedException();
-                    }
-
-                    wordCollection[i] = wordTyped;
                 }
-                catch  // Catch block for if you enter Ctrl-Z or an invalid character.
+
+                if (validCharCount != wordTyped.Length) // Catches symbols and such like.
                 {
                     Console.WriteLine("Make sure your words are composed soley of valid characters.");
                     i--;
                 }
+                else
+                {
+                    wordCollection[i] = wordTyped; 
+                }        
             }
 
             return wordCollection;
