@@ -2,16 +2,10 @@
 
 namespace MyApp
 {
-    class WordsAndValues
+    class WordsAndValues(int value, string word)
     {
-        public int value;
-        public string word;
-
-        public WordsAndValues(int value, string word)
-        {
-            this.value = value;
-            this.word = word;
-        }
+        public int Value { get; set; } = value;
+        public string Word { get; set; } = word;
     }
 
     //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -48,7 +42,7 @@ namespace MyApp
             for (int i = 0; i < wordCollection.Length; i++)
             {
                 wordsAndValues.Add(new WordsAndValues(valueCollection[i], wordCollection[i]));
-                valueList.Add(wordsAndValues[i].value);
+                valueList.Add(wordsAndValues[i].Value);
             }
 
             valueList.Sort();
@@ -57,10 +51,10 @@ namespace MyApp
             {
                 for (int j = 0; j < wordsAndValues.Count; j++)
                 {
-                    if (wordsAndValues[j].value == valueList[i])
+                    if (wordsAndValues[j].Value == valueList[i])
                     {
-                        wordList.Add(wordsAndValues[j].word);
-                        wordsAndValues[j].value = -1; // Makes sure the same word won't be added twice.
+                        wordList.Add(wordsAndValues[j].Word);
+                        wordsAndValues[j].Value = -1; // Makes sure the same word won't be added twice.
                         j = wordsAndValues.Count; // Shortens search.
                     }
                 }
